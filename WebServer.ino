@@ -55,6 +55,8 @@ ZBRxIoSampleResponse ioSample = ZBRxIoSampleResponse();
 #define FUERA_LIMITES 1
 #define ENTRE_LIMITES 0
 
+#define BOOTSTRAP 1
+
 double temperatura = TEMP_FONDO_ESCALA/2;
 int temperaturaDigital = VALOR_DESCONOCIDO;
 int temperaturaFueraRango = VALOR_DESCONOCIDO;
@@ -138,6 +140,7 @@ void loop() {
   task_webServer();
 }
 
+#ifndef BOOTSTRAP
 void task_webServer(){
   EthernetClient client = server.available();
   if (client) {
@@ -155,7 +158,7 @@ void task_webServer(){
           client.println("<meta http-equiv=\"refresh\" content=\"1\">");
           client.print("<head><style>.apagado { color: blue;} .encendido {color: green;} .error {color: red;}</style></head>");
           client.print("<body><h4>");
-          client.print("Sensor Temperatura: ");
+          client.print("Sensor Temperatura [ &deg;C ]: ");
           client.println("<br />");
           client.print("<progress value='");
           client.print(temperatura);
@@ -165,7 +168,7 @@ void task_webServer(){
           client.print(temperatura);
           client.println("<br />");
 
-          client.print("Ventilador Temperatura [ &deg;C ]: ");
+          client.print("Ventilador Temperatura: ");
           if(temperaturaDigital == 1)
             client.print("<span class='encendido'>encendido</span>");
           else
@@ -178,7 +181,7 @@ void task_webServer(){
           client.println("<br />");
           
           client.println("<hr>");
-          client.print("Sensor Humedad: ");
+          client.print("Sensor Humedad [ % ]: ");
           client.println("<br />");
           client.print("<progress value='");
           client.print(humedad);
@@ -189,7 +192,7 @@ void task_webServer(){
 
           client.println("<br />");
 
-          client.print("Ventilador Humedad [ % ]: ");
+          client.print("Ventilador Humedad: ");
           if(humedadDigital == 1)
             client.print("<span class='encendido'>encendido</span>");
           else
@@ -244,7 +247,111 @@ void task_webServer(){
     Serial.println("client disonnected");
   }
 }
+#else
+void task_webServer(){
+  EthernetClient client = server.available();
+  if (client) {
+    boolean currentLineIsBlank = true;
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
+        if (c == '\n' && currentLineIsBlank) {
+          client.println("HTTP/1.1 200 OK");
+          client.println("Content-Type: text/html");
+          client.println("Connection: close");
+          client.println();
+          client.println("<!DOCTYPE HTML>");
+          client.println("<html>");
+          client.println("<meta http-equiv=\"refresh\" content=\"1\"><link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\" crossorigin=\"anonymous\"><style>.apagado { color: blue;} .encendido {color: green;} .error {color: red;}</style>");
+          client.println("<body>");
+          client.println("<nav class=\"navbar navbar-default\"><div class=\"container-fluid\"><div class=\"navbar-header\"><a class=\"navbar-brand\" href=\"#\"><img alt=\"IUA - 2016 Trabajo final Entornos Inal&aacute;mbricos\" src=\"...\"></a></div></div></nav>");
+          client.print("<div class=\"container\"><div class=\"row\">");
+          client.print("<div class=\"col-md-4\"><div class=\"panel panel-success\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Sensor Temperatura [ &deg;C ]</h3></div><div class=\"panel-body\">");
+          client.print("<progress value='");
+          client.print(temperatura);
+          client.print("' max='");
+          client.print(TEMP_FONDO_ESCALA);
+          client.print("'></progress>&#32;");
+          client.print(temperatura);
+          client.println("<br />");
 
+          client.print("Ventilador Temperatura: ");
+          if(temperaturaDigital == 1)
+            client.print("<span class='encendido'>encendido</span>");
+          else
+            client.print("<span class='apagado'>apagado</span>");
+            
+          if(errorTemperatura == true){
+            client.print("<div class=\"alert alert-danger\" role=\"alert\">Error en el encendido/apagado ventilador</div>");
+          }
+
+          client.println("<br />");
+          
+          client.println("</div></div></div>");
+          
+          client.print("<div class=\"col-md-4\"><div class=\"panel panel-success\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Sensor Humedad [ % ]</h3></div><div class=\"panel-body\">");
+          client.print("<progress value='");
+          client.print(humedad);
+          client.print("' max='");
+          client.print(HUMEDAD_FONDO_ESCALA);
+          client.print("'></progress>&#32;");
+          client.print(humedad);
+
+          client.println("<br />");
+
+          client.print("Ventilador Humedad: ");
+          if(humedadDigital == 1)
+            client.print("<span class='encendido'>encendido</span>");
+          else
+            client.print("<span class='apagado'>apagado</span>");
+
+          if(errorHumedad == true){
+            client.print("<div class=\"alert alert-danger\" role=\"alert\">Error en el encendido/apagado ventilador</div>");
+          }
+          client.println("<br />");
+          
+          client.println("</div></div></div>");
+          client.print("<div class=\"col-md-4\"><div class=\"panel panel-success\"><div class=\"panel-heading\"><h3 class=\"panel-title\">Sensor Gas [ g/cm&sup3; ]</h3></div><div class=\"panel-body\">");
+          client.print("<progress value='");
+          client.print(gas);
+          client.print("' max='");
+          client.print(GAS_FONDO_ESCALA);
+          client.print("'></progress>&#32;");
+          client.print(gas);
+          client.println("<br />");
+
+          client.print("Ventilador Gas: ");
+          if(gasDigital == 1)
+            client.print("<span class='encendido'>encendido</span>");
+          else
+            client.print("<span class='apagado'>apagado</span>");
+
+          if(errorGas == true){
+            client.print("<div class=\"alert alert-danger\" role=\"alert\">Error en el encendido/apagado ventilador</div>");
+          }
+            
+          client.println("<br />");
+          client.println("</div></div></div>");
+          client.println("</div></div></body></html>");
+          break;
+        }
+        if (c == '\n') {
+          currentLineIsBlank = true;
+        } 
+        else if (c != '\r') {
+          // you've gotten a character on the current line
+          currentLineIsBlank = false;
+        }
+      }
+    }
+    // give the web browser time to receive the data
+    delay(1);
+    // close the connection:
+    client.stop();
+    Serial.println("client disonnected");
+  }
+}
+#endif
 /*
  * Estas funciones son las encargadas de inicializar las variables de control e identificar si hay un error en el sistema
  */
