@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<data>
+  <loop>false</loop>
+  <repeat_times>1</repeat_times>
+  <repeat_period>500</repeat_period>
+  <frames_list>
+    <frame name="Encender_DO2">
+      <payload>7E001017010013A200403CBFB4FFFE02443205C9</payload>
+    </frame>
+    <frame name="Apagar_DO2">
+      <payload>7E001017010013A200403CBFB4FFFE02443204CA</payload>
+    </frame>
+    <frame name="Leer_ATIS">
+      <payload>7E000F17010013A200403CBFB4FFFE024953A8</payload>
+    </frame>
+  </frames_list>
+</data>

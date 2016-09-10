@@ -1,0 +1,459 @@
+Ejercicio 2 - 5
+
+
+Configuracion AN0 y AN1
+
++++OK // AN0
+ATD02
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
++++OK // AN1
+ATD12
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
+
+Consultas ATIS
+
++++OK
+ATIS
+01
+0004
+03
+0000
+0232
+0002
+
++++OK
+ATIS
+01 // Cantidad de muestras
+0004 // 
+03 // Canales Habilitados AN0 y AN1
+0000
+0232 // AN0 - Termistor
+020B // AN1 - Pote
+
+
+Entradas DI2 / DI3 
+
++++OK
+ATD23
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
++++OK
+ATD33
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
+Consulta ATIS
+
++++OK
+ATIS
+01
+000C
+03
+000C
+0239
+020A
+
++++OK
+ATIS
+01
+000C
+03
+0008 // Lectura
+0231
+020A
+
++++OK
+ATIS
+01
+000C
+03
+0008 // Lectura
+022F
+020A
+
++++OK
+ATIS
+01
+000C
+03
+0004 // Lectura
+0233
+020A
+
++++OK
+ATIS
+01
+000C
+03
+000C // Lectura
+0231
+020B
+
++++OK
+ATIS
+01
+000C
+03
+000C // Lectura
+0231
+020B
+
+Salidas Digitales DO5 // PWM0
+
++++OK //DO5 - Low
+ATD54
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
++++OK //PWM0 - Low
+ATP04
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
+Lectura ATIS
+
++++OK  // DO5 y PWM0 en Low
+ATIS
+01
+042C
+03
+000C
+0234
+020A
+
++++OK	//DO5 - High
+ATD55
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
++++OK	//PWM0 - High
+ATP05
+OK
+ATWR
+OK
+ATAC
+OK
+ATCN
+OK
+
+Lectura ATIS
+
++++OK
+ATIS
+01
+042C
+03
+042C
+0236
+020A
+
+
+Ejercicio 6 
+
+
+Configuracion AN0
+08-19-2016 21:45:43.586,0,SENT,7E0005096B44300215
+
+AT Command Queue (API 1)
+
+7E 00 05 09 6B 44 30 02 15
+
+Start delimiter: 7E
+Length: 00 05 (5)
+Frame type: 09 (AT Command Queue)
+Frame ID: 6B (107)
+AT Command: 44 30 (D0)
+Parameter: 02
+Checksum: 15
+
+
+08-19-2016 21:45:43.632,1,RECV,7E0005886B44300098
+
+AT Command Response (API 1)
+
+7E 00 05 88 6B 44 30 00 98
+
+Start delimiter: 7E
+Length: 00 05 (5)
+Frame type: 88 (AT Command Response)
+Frame ID: 6B (107)
+AT Command: 44 30 (D0)
+Status: 00 (Status OK)
+Checksum: 98
+
+
+08-19-2016 21:45:43.641,2,SENT,7E0004096C5752E1
+
+AT Command Queue (API 1)
+
+7E 00 04 09 6C 57 52 E1
+
+Start delimiter: 7E
+Length: 00 04 (4)
+Frame type: 09 (AT Command Queue)
+Frame ID: 6C (108)
+AT Command: 57 52 (WR)
+Checksum: E1
+
+
+08-19-2016 21:45:43.682,3,RECV,7E0005886C57520062
+
+AT Command Response (API 1)
+
+7E 00 05 88 6C 57 52 00 62
+
+Start delimiter: 7E
+Length: 00 05 (5)
+Frame type: 88 (AT Command Response)
+Frame ID: 6C (108)
+AT Command: 57 52 (WR)
+Status: 00 (Status OK)
+Checksum: 62
+
+
+08-19-2016 21:45:43.693,4,SENT,7E0004096D414305
+
+AT Command Queue (API 1)
+
+7E 00 04 09 6D 41 43 05
+
+Start delimiter: 7E
+Length: 00 04 (4)
+Frame type: 09 (AT Command Queue)
+Frame ID: 6D (109)
+AT Command: 41 43 (AC)
+Checksum: 05
+
+
+08-19-2016 21:45:43.733,5,RECV,7E0005886D41430086
+
+AT Command Response (API 1)
+
+7E 00 05 88 6D 41 43 00 86
+
+Start delimiter: 7E
+Length: 00 05 (5)
+Frame type: 88 (AT Command Response)
+Frame ID: 6D (109)
+AT Command: 41 43 (AC)
+Status: 00 (Status OK)
+Checksum: 86
+
+Configuracion AN1
+08-19-2016 21:45:44.837,6,SENT,7E0005096E44310211
+08-19-2016 21:45:44.885,7,RECV,7E0005886E44310094
+08-19-2016 21:45:44.897,8,SENT,7E0004096F5752DE
+08-19-2016 21:45:44.935,9,RECV,7E0005886F5752005F
+08-19-2016 21:45:44.945,10,SENT,7E00040970414302
+08-19-2016 21:45:44.985,11,RECV,7E0005887041430083
+
+
+AT Command Queue (API 1)
+
+7E 00 05 09 6B 44 30 02 15
+
+Start delimiter: 7E
+Length: 00 05 (5)
+Frame type: 09 (AT Command Queue)
+Frame ID: 6B (107)
+AT Command: 44 30 (D0)
+Parameter: 02
+Checksum: 15
+
+Respuesta ATIS
+
+Trama: 7E 00 04 08 01 49 53 5A
+
+Resultado
+
+AT Command Response (API 1)
+
+7E 00 0F 88 01 49 53 00 01 04 2C 03 04 2C 02 43 02 09 26
+
+Start delimiter: 7E
+Length: 00 0F (15)
+Frame type: 88 (AT Command Response)
+Frame ID: 01 (1)
+AT Command: 49 53 (IS)
+Status: 00 (Status OK)
+Response: 01 04 2C 03 04 2C 02 43 02 09
+Checksum: 26
+
+
+Ejercicio 7
+
+Debe haber un coordinador al menos. El otro puede ser modo router o end-point (no recomienda el en point porque entre en modo idle)
+
+1. Configurar el PANID (con 6 caracteres, con 4 no habia funcionado)
+
+PAN_ID: 123456 ( para registrarnos a la red )
+
+2. Configurar la direccion destino 
+
+ATDH13A200
+ATDL403CBFB4
+ATCN
+
+------------
++++OK
+ATDH13A200
+OK
+ATDL403CBFB4
+OK
+ATCN
+OK
+hhhhhhhTest AT Command!!!Deja de
+------------
+
+Despues de esto todo lo que escribimos por el puerto serie se envia al destino.
+
+Ejercicio 8
+
+Pasar el dispositivo a modo API
+
+Trama de control
+
+7E 00 10 17 12 00 13 A2 00 40 0A 5E 3B FF FE 02 50 31 05 B9
+
+7E: inicio de trama
+00 10: longitud de datos (16 bytes a continuación, más uno de checksum)
+17: comando remoto
+12: identificador de trama (cualquier número distinto de cero)
+00 13 A2 00 40 0A 5E 3B: dirección IEEE del destinatario
+FF FE: dirección corta del destinatario, FFFE indica que no se la conoce
+02: opciones, ejecutar ahora
+50 31: P1, DIO11
+05: 5, configurar como salida y colocar en estado alto
+B9: checksum
+
+Trama del ejercicio
+
+DST: 00 13 A2 00 40 3C BF B4
+
+Encender DO2
+
+7E 00 10 17 01 00 13 A2 00 40 3C BF B4 FF FE 02 44 32 35 99
+
+Apagar DO2
+
+7E 00 10 17 01 00 13 A2 00 40 3C BF B4 FF FE 02 44 32 34 9A
+
+Ver archivo tramas (Ejercicio-8-ModoAPI-DO2-Encendido-Apagadolog)
+
+Ejercicio 9 
+
+Enviamos el comando ATIS para leer todos ls puertos en modo remoto
+
+Trama API Enviada
+
+7E 00 0F 17 01 00 13 A2 00 40 3C BF B4 FF FE 02 49 53 A8
+
+Trama API Recivida
+
+7E 00 19 97 01 00 13 A2 00 40 3C BF B4 00 00 49 53 00 01 00 20 03 00 20 02 18 03 4E 78
+
+Dato de respuesta 
+
+01 00 20 03 00 20 02 18 03 4E
+
+01 
+00 20 
+03 
+00 20 // DO5
+02 18 // AN0
+03 4E // AN1
+
+2016 / 09 / 02
+
+Ejercicio 10
+
+Los módulos deben ser configurados para  operación  en  modo  API  con  caracteres  de  escape  (AP=2)
+
+Pasos para configurar en modo AP=2 (ver archivo log Ejercicio10-ConfiguracionModoAP2.log)
+
+Se adapto el ejemplo para que los datos sean enviados por el puerto Serial1 y de hizo un hardcode de la variable analogica.
+
+Ejercicio 11
+
+Se reemplazo el objeto SerialSoftware nss por el objeto Serial y se configuro el objeto Xbee con el puerto Serial1
+
+Recibimos una trama de broadcast desde un equipo remoto con el siguiente valor
+
+Received I/O Sample from: 13A200403A3C93
+Sample contains analog data
+Sample contains digtal data
+Analog (AI1) is 304
+Digital (DI4) is 1
+Digital (DI5) is 0
+
+
+
+
+
+Sending command to the XBee
+Command [7383] was successful!
+Command value length is 10
+Command value: 1 0 C 3 0 8 2 68 3 E7 
+
+
+PAN_ID: 123456
+Xbee Nro 2 
+SH: 0013A200
+SL: 403A3C93
+Modo: Router
+AN1 / DI5
+Funcion: Humedad
+
+00 13 A2 00 40 3A 3C 93
+
+
+Xbee Nro 4 
+SH: 0013A200
+SL: 403CBFB4
+Modo: Coordinador
+AN1 / DI5
+Funcion: Temperatura
+
+
+
+

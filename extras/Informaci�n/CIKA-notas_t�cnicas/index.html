@@ -1,0 +1,62 @@
+<HTML><HEAD><!-- RLI by (C)SRC --><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"><TITLE>Library</title></head><BODY ><H1>/ZKit/CTCyCAN</H1><H2><B>Contents</B></H2><P><H3><UL>
+</UL></H3> <P><TABLE BORDER="1" CELLPADDING="3" CELLSPACING="1">
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CAN-089">CAN-089_XbeeZB_API.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CAN-089_XbeeZB_API.pdf">CAN-089_XbeeZB_API.pdf</A></TT></TD></TR><TR><TD><B><I>                     Nota de Aplicación: CAN-089 <br>                      Título: Utilización del modo API en módulos XBee ZB </I><br><br>   En esta Nota de Aplicación veremos la forma de utilizar el modo API en módulos XBee (o XBee-PRO) ZB.
+
+
+Introducción
+
+
+ Comentamos en varios Comentarios Técnicos la existencia de un modo de comunicación denominado API.
+En este modo de trabajo, el módulo XBee ZB ya no funciona en modo transparente y no posee comandos AT.
+La comunicación con el módulo respeta un framing particular, el cual permite simplificar la operatoria con
+varios módulos remotos, dado que es posible identificar el origen y seleccionar el destino de la información</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+<TR><TD BGCOLOR="#a0ffff"><B><FONT COLOR="blue" FACE="Arial, Helvetica">Software de soporte CAN-089:</FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CAN-089_Software.zip">CAN-089_Software.zip</A></TT></TD></TR><TR><td><td>
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CTC-058">CTC-058_XBeeZB.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CTC-058_XBeeZB.pdf">CTC-058_XBeeZB.pdf</A></TT></TD></TR><TR><TD><B><I>                            Comentario técnico: CTC-058 <br>                             Componente: XBee y XBee-PRO ZB: Zigbee-PRO </I><br><br>      Hablaremos, en esta oportunidad, acerca de los módulos XBee y XBee-PRO ZB, dos nuevos integrantes de la
+familia DIGI RF, anteriormente conocida como MaxStream. Se trata de módulos integrados e inteligentes,
+mediante los cuales es posible operar en redes Zigbee1. Estos módulos se presentan como una interesante y
+atractiva alternativa, acortando el tiempo de desarrollo dado que ya poseen el stack Zigbee-PRO incorporado y
+la RF resuelta, funcionando como modems configurables mediante el set de comandos AT.
+
+
+XBee ZB</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CTC-059">CTC-059_XBeeZBSerie.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CTC-059_XBeeZBSerie.pdf">CTC-059_XBeeZBSerie.pdf</A></TT></TD></TR><TR><TD><B><I>                       Comentario Técnico: CTC-059 <br>                        Título: Utilización de XBee ZB para comunicación de aplicaciones </I><br><br>       En este comentario técnico estudiaremos las posibles formas de intercomunicar aplicaciones en forma
+inalámbrica, mediante módulos XBee ZB (o XBee-PRO ZB) con firmware AT1, dentro de una red Zigbee.
+
+
+Introducción
+
+
+     En los casos que veremos a continuación, cada aplicación es implementada sobre un sistema microprocesado,
+el cual nos permite disponer de un puerto de comunicaciones. Dado que el XBee ZB es un módulo de 3V, la
+interconexión entre estos sistemas y el XBee ZB deberá respetar dicha tensión. A los fines prácticos, asumimos</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CTC-060">CTC-060_XBeeZBEntradas.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CTC-060_XBeeZBEntradas.pdf">CTC-060_XBeeZBEntradas.pdf</A></TT></TD></TR><TR><TD><B><I>                      Comentario Técnico: CTC-060 <br>                       Título: Utilización de XBee ZB para sensores remotos </I><br><br>  En este comentario técnico estudiaremos la forma de configurar los módulos XBee (o XBee-PRO) ZB para
+utilización en redes Zigbee con aplicaciones de sensores remotos.
+
+
+Introducción
+
+
+ En los casos que veremos a continuación, el módulo transmitirá la información de estado de sus entradas y
+salidas a uno o varios módulos remotos. Las formas de configuración para envío de información a módulos
+remotos en las diversas topologías han sido descriptas en CTC-059.</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CTC-061">CTC-061_XBeeZBSalidas.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CTC-061_XBeeZBSalidas.pdf">CTC-061_XBeeZBSalidas.pdf</A></TT></TD></TR><TR><TD><B><I>                       Comentario Técnico: CTC-061 <br>                        Título: Utilización de XBee ZB con actuadores remotos </I><br><br>  En este comentario técnico describimos la forma de configurar los módulos XBee (o XBee-PRO) ZB para
+utilización en redes Zigbee con aplicaciones de actuadores remotos.
+
+
+Control de las salidas
+
+
+  Cada uno de los pines DIOx que puede ser configurado para su operación como salida digital, posee un
+comando ATDx que permite operar sobre esta selección. Por ejemplo ATD1=4 configura DIO1 como salida en
+estado bajo, mientras que ATD1=5 la configura como salida en estado alto. Los pines DIO10 a DIO12 se</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+<TR><TD BGCOLOR="#40a0a0"><B><FONT COLOR="white" FACE="Arial, Helvetica"><A NAME="#CTC-062">CTC-062_XBeeZBhowitworks.pdf</A></FONT></B></TD><TD WIDTH="100" BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><TT><A HREF="CTC-062_XBeeZBhowitworks.pdf">CTC-062_XBeeZBhowitworks.pdf</A></TT></TD></TR><TR><TD><B><I>                      Comentario Técnico: CTC-062 <br>                       Título: ¿ Cómo funciona una red Zigbee 2007 ? </I><br><br>  En este comentario técnico analizaremos brevemente el funcionamiento de una red Zigbee basada en módulos
+XBee ZB y XBee-PRO ZB.
+
+
+Introducción a Zigbee
+
+
+  El stack de protocolos Zigbee se apoya sobre IEEE 802.15.4 para la comunicación entre dispositivos cercanos,
+es decir, el acceso al medio y el intercambio de mensajes por éste. Por sobre esta base, define un nivel de
+routing (NWK) que permite que los dispositivos con funcionalidad de router puedan transportar mensajes para</B></TD><TD  BGCOLOR="#e0e0e0"><P ALIGN="CENTER"><SMALL></SMALL></TD><TR><td><td>
+</TABLE><P><HR></BODY></HTML>
